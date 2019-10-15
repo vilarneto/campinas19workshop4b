@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum TemperatureType {
+    case C
+    case K
+    case F
+}
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
@@ -15,6 +21,16 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    func convertToKelvin(temperatue:Float,originalType:TemperatureType) -> Float {
+        switch originalType{
+        case TemperatureType.C:
+            return temperatue + 273.15
+        case TemperatureType.F:
+            return (temperatue - 32) * 5/9 + 273.15
+        default:
+            return temperatue
+        }
+    }
 
 }
 
