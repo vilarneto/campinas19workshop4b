@@ -12,7 +12,7 @@ import UIKit
 enum TemperatureUnit {
     case Kelvin
     case Celsius
-    case Farenheit
+    case Fahrenheit
 }
 
 
@@ -22,8 +22,19 @@ func convertToCelsius(amount: Double, fromUnit: TemperatureUnit) -> Double {
         return amount - 273.15
     case .Celsius:
         return amount
-    case .Farenheit:
+    case .Fahrenheit:
         return (amount - 32) * 5 / 9
+    }
+}
+
+func convertToFahrenheit(amount: Double, fromUnit: TemperatureUnit) -> Double {
+    switch fromUnit {
+    case .Kelvin:
+        return ((amount - 273.15) * 9/5 + 32)
+    case .Celsius:
+        return ((amount * 9/5) + 32)
+    case .Fahrenheit:
+        return amount
     }
 }
 
