@@ -8,6 +8,26 @@
 
 import UIKit
 
+
+enum TemperatureUnit {
+    case Kelvin
+    case Celsius
+    case Farenheit
+}
+
+
+func convertToCelsius(amount: Double, fromUnit: TemperatureUnit) -> Double {
+    switch fromUnit {
+    case .Kelvin:
+        return amount - 273.15
+    case .Celsius:
+        return amount
+    case .Farenheit:
+        return (amount - 32) * 5 / 9
+    }
+}
+
+
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
